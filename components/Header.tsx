@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({ onViewChange, currentView = 'hom
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 py-6 md:px-12 ${scrolled ? 'py-4' : 'py-8'}`}>
       <nav className={`max-w-7xl mx-auto flex items-center justify-between transition-all duration-500 ${
         scrolled 
-          ? 'bg-white/80 backdrop-blur-xl px-8 py-3 rounded-full shadow-2xl border border-gray-100' 
+          ? 'bg-white/95 backdrop-blur-xl px-8 py-3 rounded-full shadow-2xl border border-gray-100' 
           : 'bg-transparent'
       }`}>
         {/* Logo */}
@@ -35,23 +35,23 @@ export const Header: React.FC<HeaderProps> = ({ onViewChange, currentView = 'hom
             H
           </div>
           <div className="flex flex-col">
-            <span className={`text-lg font-serif font-black tracking-tight leading-none ${scrolled || isAltPage ? 'text-[#0D2C22]' : 'text-[#0D2C22]'}`}>
+            <span className={`text-lg font-serif font-black tracking-tight leading-none ${scrolled || isAltPage ? 'text-[#006837]' : 'text-[#006837]'}`}>
               House of Curry
             </span>
-            <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-[#C1272D]">Signature Catering</span>
+            <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-[#C1272D]">Excellence in Hospitality</span>
           </div>
         </div>
 
         {/* Links */}
-        <div className={`hidden lg:flex items-center gap-10 text-[10px] font-bold uppercase tracking-widest ${scrolled || isAltPage ? 'text-[#0D2C22]' : 'text-[#0D2C22]'}`}>
+        <div className={`hidden lg:flex items-center gap-10 text-[10px] font-bold uppercase tracking-widest ${scrolled || isAltPage ? 'text-gray-600' : 'text-gray-800'}`}>
           {['home', 'about', 'services', 'blog'].map((view) => (
             <button 
               key={view}
               onClick={() => onViewChange?.(view as PageView)}
-              className={`hover:text-[#C1272D] transition-colors relative group ${currentView === view ? 'text-[#C1272D]' : ''}`}
+              className={`hover:text-[#006837] transition-colors relative group ${currentView === view ? 'text-[#006837]' : ''}`}
             >
               {view}
-              <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-[#C1272D] transform transition-transform duration-300 ${currentView === view ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+              <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-[#006837] transform transition-transform duration-300 ${currentView === view ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </button>
           ))}
         </div>
@@ -59,13 +59,9 @@ export const Header: React.FC<HeaderProps> = ({ onViewChange, currentView = 'hom
         {/* CTA */}
         <button 
           onClick={() => onViewChange?.('contact')}
-          className={`px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${
-            scrolled || isAltPage 
-              ? 'bg-[#0D2C22] text-white hover:bg-[#C1272D]' 
-              : 'bg-[#0D2C22] text-white hover:bg-[#C1272D]'
-          }`}
+          className="px-8 py-3 bg-[#006837] text-white rounded-full text-[10px] font-bold uppercase tracking-widest transition-all hover:bg-[#C1272D] shadow-lg"
         >
-          Get A Proposal
+          Enquire Now
         </button>
       </nav>
     </header>

@@ -4,70 +4,55 @@ import React from 'react';
 const services = [
   {
     id: 'corporate',
-    tag: 'Professional',
-    title: 'Boardroom Elegance',
+    title: 'Corporate Events',
     image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop',
-    desc: 'High-stakes catering for high-stakes meetings.'
+    description: 'Bespoke catering for boardrooms, conferences, and high-impact galas.'
   },
   {
     id: 'private',
-    tag: 'Intimate',
-    title: 'Private Sanctuaries',
+    title: 'Private Dining',
     image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop',
-    desc: 'Bespoke Michelin-inspired home experiences.'
+    description: 'Michelin-inspired home experiences for your most intimate circles.'
   },
   {
     id: 'weddings',
-    tag: 'Celebration',
-    title: 'Wedding Masterpieces',
+    title: 'Wedding Galas',
     image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop',
-    desc: 'Curating the sensory narrative of your love story.'
+    description: 'The ultimate culinary journey for your most special day.'
   }
 ];
 
 export const WhatWeDo: React.FC = () => {
   return (
-    <section className="py-32 bg-[#0D2C22] text-white">
+    <section className="py-24 bg-gray-50">
       <div className="w-[90%] max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
-          <div className="max-w-3xl">
-            <span className="text-[#D4AF37] font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Our Capabilities</span>
-            <h2 className="text-5xl md:text-7xl font-serif leading-tight">
-              Scaling The <br/>
-              <span className="italic text-[#D4AF37]">Extraordinary.</span>
-            </h2>
-          </div>
-          <div className="max-w-xs pb-4 border-l-2 border-[#D4AF37]/30 pl-8">
-            <p className="text-white/60 text-lg font-light italic">"Precision at volume is our signature."</p>
-          </div>
+        <div className="text-center mb-20">
+          <span className="text-[#C1272D] font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Our Capabilities</span>
+          <h2 className="text-4xl md:text-6xl font-serif text-[#006837]">
+            Culinary <span className="italic text-[#C1272D]">Excellence</span> at Scale
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {services.map((item, idx) => (
-            <div key={item.id} className="group cursor-pointer">
-              <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden mb-8 shadow-2xl">
+          {services.map((service) => (
+            <div key={service.id} className="group bg-white rounded-[2.5rem] overflow-hidden shadow-xl transition-all hover:-translate-y-2">
+              <div className="h-64 overflow-hidden">
                 <img 
-                  src={item.image} 
-                  className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" 
-                  alt={item.title} 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-[#0D2C22]/40 group-hover:bg-transparent transition-colors"></div>
-                <div className="absolute top-8 left-8">
-                  <span className="px-4 py-1.5 bg-white text-[#0D2C22] rounded-full text-[9px] font-bold uppercase tracking-widest">
-                    {item.tag}
-                  </span>
-                </div>
-                <div className="absolute bottom-10 left-10 right-10">
-                   <h3 className="text-3xl font-serif mb-2">{item.title}</h3>
-                   <p className="text-white/70 text-sm opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-500">
-                     {item.desc}
-                   </p>
-                </div>
               </div>
-              <button className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-[#D4AF37] group-hover:text-white transition-colors">
-                Explore Capability 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </button>
+              <div className="p-10">
+                <h3 className="text-2xl font-serif text-[#006837] mb-4">{service.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8">
+                  {service.description}
+                </p>
+                <button className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-[#C1272D] group-hover:gap-5 transition-all">
+                  Learn More
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+              </div>
             </div>
           ))}
         </div>
